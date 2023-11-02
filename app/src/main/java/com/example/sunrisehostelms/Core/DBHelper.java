@@ -38,7 +38,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         try {
-            return db.insertOrThrow(tableName, null, values);
+            return db.insert(tableName, null, values);
         } catch (SQLException e) {
             e.printStackTrace();
             Log.e("DBHelper", "Error inserting data: " + e.getMessage()); // Log the error message

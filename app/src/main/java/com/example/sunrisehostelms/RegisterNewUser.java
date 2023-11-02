@@ -2,6 +2,7 @@ package com.example.sunrisehostelms;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,65 +54,78 @@ public class RegisterNewUser extends AppCompatActivity {
     }
 
     private void registerUser() {
-        if(fullNameEditText.getText().toString().equals("")||
-           emailAdressEditText.getText().toString().equals("")||
-           regNoEditText.getText().toString().equals("")||
-           idNoEditText.getText().toString().equals("")||
-           phoneNoEditText.getText().toString().equals("")
-        ){
+        if (fullNameEditText.getText().toString().equals("") ||
+                emailAdressEditText.getText().toString().equals("") ||
+                regNoEditText.getText().toString().equals("") ||
+                idNoEditText.getText().toString().equals("") ||
+                phoneNoEditText.getText().toString().equals("")
+        ) {
             Toast.makeText(this, "Fill a the fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        String fullName = fullNameEditText.getText().toString();
-        String email = emailAdressEditText.getText().toString();
+        DBHelper dbHelper = new DBHelper(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
         String regNo = regNoEditText.getText().toString();
-        String idNo = idNoEditText.getText().toString();
-        String phoneNo = phoneNoEditText.getText().toString();
-
-        // Insert data into personal details table
-        DBHelper dbHelper = new DBHelper(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_FULL_NAME, fullName);
-        values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_EMAIL, email);
-        values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_REG_NO, regNo);
-        values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ID_NO, idNo);
-        values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_PHONE_NO, phoneNo);
-        // Assuming you have a method to get room price and room number
-        //values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_PRICE, roomPrice);
-       // values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_NO, roomNo);
-
-        long newRowId = dbHelper.insertData(PersonalDetailsContract.PersonalDetailsEntry.TABLE_NAME, values);
-
-        if (newRowId != -1) {
-            deleteRoomFromDatabase(roomNo);
-            Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this, "Failed To insert the data", Toast.LENGTH_SHORT).show();
-        }
-    }
 
 
-    private void deleteRoomFromDatabase(String roomNo) {
-        DBHelper dbHelper = new DBHelper(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        // Check if the room already exists
+        Cursor cursor = db.rawQuery("SELECT * FROM " + PersonalDetailsContract.PersonalDetailsEntry.TABLE_NAME +
+                " WHERE " + PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_REG_NO + "=?", new String[]{regNo});
 
-        // Define the WHERE clause to identify the room to delete
-        String selection = RoomContract.RoomEntry.COLUMN_NAME_ROOM_NO + " = ?";
-        String[] selectionArgs = { roomNo };
-
-        // Perform the delete operation
-        int deletedRows = db.delete(RoomContract.RoomEntry.TABLE_NAME, selection, selectionArgs);
-
-        if (deletedRows > 0) {
-            Toast.makeText(this, "Room deleted successfully", Toast.LENGTH_SHORT).show();
+        if (cursor.moveToFirst()) {
+            // Room already exists in the database
+            Toast.makeText(RegisterNewUser.this, "User exists ", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Failed to delete room", Toast.LENGTH_SHORT).show();
-        }
+            String fullName = fullNameEditText.getText().toString();
+            String email = emailAdressEditText.getText().toString();
+            String idNo = idNoEditText.getText().toString();
+            String phoneNo = phoneNoEditText.getText().toString();
 
+            // Insert data into personal details table
+
+            ContentValues values = new ContentValues();
+            values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_FULL_NAME, fullName);
+            values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_EMAIL, email);
+            values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_REG_NO, regNo);
+            values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ID_NO, idNo);
+            values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_PHONE_NO, phoneNo);
+            // Assuming you have a method to get room price and room number
+            //values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_PRICE, roomPrice);
+            // values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_NO, roomNo);
+
+            long newRowId = dbHelper.insertData(PersonalDetailsContract.PersonalDetailsEntry.TABLE_NAME, values);
+
+            if (newRowId != 0) {
+                deleteRoomFromDatabase(roomNo);
+                Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Failed To insert the data", Toast.LENGTH_SHORT).show();
+            }
+        }
         db.close();
     }
+
+
+        private void deleteRoomFromDatabase (String roomNo){
+            DBHelper dbHelper = new DBHelper(this);
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+            // Define the WHERE clause to identify the room to delete
+            String selection = RoomContract.RoomEntry.COLUMN_NAME_ROOM_NO + " = ?";
+            String[] selectionArgs = {roomNo};
+
+            // Perform the delete operation
+            int deletedRows = db.delete(RoomContract.RoomEntry.TABLE_NAME, selection, selectionArgs);
+
+            if (deletedRows > 0) {
+                Toast.makeText(this, "Room deleted successfully", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Failed to delete room", Toast.LENGTH_SHORT).show();
+            }
+
+
+        }
+
 
 }
