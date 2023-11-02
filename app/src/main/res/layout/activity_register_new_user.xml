@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterNewUser">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Finish your booking"
+                android:textSize="25dp"
+                android:textAlignment="center"
+                android:textColor="@color/blue"
+                android:layout_marginBottom="30dp"
+                />
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Enter Name:"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/white"
+                        android:id="@+id/userNameEditText"
+                        android:textAlignment="center"
+                        android:hint="mike johnson"
+
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Enter Email Adress"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/white"
+                        android:id="@+id/emailAdressEditText"
+                        android:textAlignment="center"
+                        android:hint="abc@gmail.com"
+
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Student Reg No:"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/white"
+                        android:id="@+id/regNoEditText"
+                        android:textAlignment="center"
+                        android:hint="C025-01-0943/21"
+
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/LLIDNo"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ID No:"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/white"
+                        android:inputType="number"
+                        android:id="@+id/idnoEditText"
+                        android:textAlignment="center"
+                        android:hint="32445639"
+
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Phone No:"
+                        android:textSize="15dp"
+                        android:textColor="@color/white"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/white"
+                        android:inputType="number"
+                        android:id="@+id/phoneNoEditText"
+                        android:textAlignment="center"
+                        android:hint="+254728930154"
+
+                        />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/userRegisterBtn"
+                android:layout_width="155dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#0000FF"
+                android:text="Register"
+
+
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back to Home?"
+                android:textAlignment="center"
+                android:textSize="20px"
+                android:layout_marginLeft="30px"
+                android:layout_marginTop="20px"
+                android:id="@+id/TVbackToHome"
+                android:textColor="@color/pink"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

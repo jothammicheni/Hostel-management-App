@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNewRoom">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+
+  >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90px"
+            android:background="@color/pink"
+            android:id="@+id/admin_nav"
+            android:orientation="horizontal"
+
+            android:padding="5px"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/home"
+                android:textSize="20dp"
+                android:textFontWeight="30"
+                android:id="@+id/backHome"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dashboard"
+                android:id="@+id/navDashboard"
+                android:textSize="20dp"
+
+                android:textFontWeight="30"
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/green"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="new Room"
+                android:id="@+id/navAddNewRooms"
+                android:textSize="20dp"
+
+                android:textFontWeight="30"
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/green"
+                />
+
+
+        </LinearLayout>
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/admin_nav"
+         android:gravity="center"
+         android:orientation="vertical"
+     >
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Add new Rooms"
+             android:textSize="25dp"
+             android:textAlignment="center"
+             android:textColor="@color/white"
+             android:layout_marginTop="30dp"
+             />
+           <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            >
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter room Price:"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                />
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="40dp"
+                   android:background="@color/white"
+                   android:id="@+id/priceEditText"
+                   android:textAlignment="center"
+                   android:hint="5000"
+
+                   />
+
+           </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enter room Category:"
+                    android:textSize="15dp"
+                    android:textColor="@color/white"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:id="@+id/roomCategoryNoEditText"
+                    android:textAlignment="center"
+                    android:hint="bedsitter/single"
+
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Floor number:"
+                    android:textSize="15dp"
+                    android:textColor="@color/white"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:id="@+id/floorNoEditText"
+                    android:textAlignment="center"
+                    android:hint="SRN20"
+
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/LLroomNo"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enter room No:"
+                    android:textSize="15dp"
+                    android:textColor="@color/white"
+                    />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/white"
+                    android:id="@+id/roomNoEditText"
+                    android:textAlignment="center"
+                    android:hint="2nd"
+
+                    />
+
+            </LinearLayout>
+
+               <Button
+                   android:layout_width="150dp"
+                   android:layout_height="40dp"
+                   android:id="@+id/addRoomBtn"
+                   android:backgroundTint="#0000FF"
+                   android:text="Add Room"
+                   android:layout_marginTop="20dp"
+
+
+                   />
+           </LinearLayout>
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Back to dashboard?"
+             android:textAlignment="center"
+             android:textSize="20px"
+             android:layout_marginLeft="30px"
+             android:layout_marginTop="20px"
+             android:id="@+id/TVbackToAdminHome"
+             android:textColor="@color/pink"
+             />
+     </LinearLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

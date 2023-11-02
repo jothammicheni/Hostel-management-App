@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DisplayRoomsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90px"
+            android:background="@color/pink"
+            android:id="@+id/home_nav"
+            android:orientation="horizontal"
+
+            android:padding="5px"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/home"
+                android:textSize="20dp"
+                android:textFontWeight="30"
+                android:id="@+id/backHome"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dashboard"
+                android:id="@+id/navDashboard"
+                android:textSize="20dp"
+
+                android:textFontWeight="30"
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/green"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="profile"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@color/green"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/loginicon"
+                    android:id="@+id/navUserLogin"
+                    android:textSize="20dp"
+
+                    android:textFontWeight="30"
+                    android:textColor="@color/green"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Available Rooms"
+            android:id="@+id/displayRoomsTitle"
+            android:layout_below="@+id/home_nav"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:layout_margin="10dp"
+          />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/displayRoomsTitle"
+            >
+
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/LLdisplayRoms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                tools:context=".DisplayRoomsActivity">
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
