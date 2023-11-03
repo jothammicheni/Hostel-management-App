@@ -64,15 +64,15 @@ public class RegisterNewUser extends AppCompatActivity {
             return;
         }
 
-        DBHelper dbHelper = new DBHelper(RegisterNewUser.this);
+        DBHelper dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         String regNo = regNoEditText.getText().toString();
 
 
-        //  Check if the room already exists
-        Cursor cursor = db.rawQuery("SELECT * FROM " +PersonalDetailsContract.PersonalDetailsEntry.TABLE_NAME +
-                        " WHERE " + PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_REG_NO + "=? ",
-                new String[]{regNo});
+        // Check if the room already exists
+        Cursor cursor = db.rawQuery("SELECT * FROM " + PersonalDetailsContract.PersonalDetailsEntry.TABLE_NAME +
+                " WHERE " + PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_REG_NO + "=?", new String[]{regNo});
+
         if (cursor.moveToFirst()) {
             // Room already exists in the database
             Toast.makeText(RegisterNewUser.this, "User exists ", Toast.LENGTH_SHORT).show();
@@ -91,8 +91,8 @@ public class RegisterNewUser extends AppCompatActivity {
             values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ID_NO, idNo);
             values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_PHONE_NO, phoneNo);
             // Assuming you have a method to get room price and room number
-            values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_PRICE, roomPrice);
-            values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_NO, roomNo);
+            //values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_PRICE, roomPrice);
+            // values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_NO, roomNo);
 
             long newRowId = dbHelper.insertData(PersonalDetailsContract.PersonalDetailsEntry.TABLE_NAME, values);
 
@@ -105,7 +105,6 @@ public class RegisterNewUser extends AppCompatActivity {
         }
         db.close();
     }
-
 
 
         private void deleteRoomFromDatabase (String roomNo){
@@ -125,7 +124,7 @@ public class RegisterNewUser extends AppCompatActivity {
                 Toast.makeText(this, "Failed to delete room", Toast.LENGTH_SHORT).show();
             }
 
-            db.close();
+
         }
 
 
