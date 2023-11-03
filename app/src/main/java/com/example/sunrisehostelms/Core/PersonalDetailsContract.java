@@ -13,8 +13,8 @@ public class PersonalDetailsContract {
         public static final String COLUMN_NAME_REG_NO = "reg_no";
         public static final String COLUMN_NAME_ID_NO = "id_no";
         public static final String COLUMN_NAME_PHONE_NO = "phone_no";
-        //public static final String COLUMN_NAME_ROOM_PRICE = "room_price";
-       // public static final String COLUMN_NAME_ROOM_NO = "room_no";
+        public static final String COLUMN_NAME_ROOM_PRICE = "room_price";
+        public static final String COLUMN_NAME_ROOM_NO = "room_no";
 
         // Define the SQL command to create the table
         public static final String CREATE_TABLE =
@@ -24,10 +24,9 @@ public class PersonalDetailsContract {
                         COLUMN_NAME_EMAIL + " TEXT," +
                         COLUMN_NAME_REG_NO + " TEXT," +
                         COLUMN_NAME_ID_NO + " TEXT," +
-                        COLUMN_NAME_PHONE_NO + " TEXT,)" ;
-                        //+
-                        //COLUMN_NAME_ROOM_PRICE + " INTEGER," +
-                       // COLUMN_NAME_ROOM_NO + " TEXT)";
+                        COLUMN_NAME_PHONE_NO + " TEXT, "+
+                        COLUMN_NAME_ROOM_PRICE + " INTEGER," +
+                        COLUMN_NAME_ROOM_NO + " TEXT)";
     }
 }
 
