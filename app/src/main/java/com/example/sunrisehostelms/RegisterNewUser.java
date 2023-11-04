@@ -71,11 +71,12 @@ public class RegisterNewUser extends AppCompatActivity {
 
         // Check if the room already exists
         Cursor cursor = db.rawQuery("SELECT * FROM " + PersonalDetailsContract.PersonalDetailsEntry.TABLE_NAME +
-                " WHERE " + PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_REG_NO + "=?", new String[]{regNo});
+                " WHERE " + PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_NO+ "=?", new String[]{roomNo});
 
         if (cursor.moveToFirst()) {
             // Room already exists in the database
             Toast.makeText(RegisterNewUser.this, "User exists ", Toast.LENGTH_SHORT).show();
+            cursor.close();
         } else {
             String fullName = fullNameEditText.getText().toString();
             String email = emailAdressEditText.getText().toString();

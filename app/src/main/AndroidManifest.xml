@@ -18,6 +18,9 @@
         android:theme="@style/Theme.SunriseHostelMS"
         tools:targetApi="31">
         <activity
+            android:name=".AdminViewUsers"
+            android:exported="false" />
+        <activity
             android:name=".RegisterNewUser"
             android:exported="false" />
         <activity
