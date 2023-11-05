@@ -18,7 +18,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
 public class AddNewRoom extends AppCompatActivity {
- TextView backToAdminDashboard;
+ TextView backToAdminDashboard,navDashboard,navUpdateUsers;
  Button addnewRoomBtn;
  EditText  priceEditText,roomCategoryNoEditText,floorNoEditText, roomNoEditText;
     @Override
@@ -27,6 +27,8 @@ public class AddNewRoom extends AppCompatActivity {
         setContentView(R.layout.activity_add_new_room);
 
         //declare components//
+        navUpdateUsers=findViewById(R.id.navUpdateUsers);
+        navDashboard=findViewById(R.id.navDashboard);
         addnewRoomBtn=findViewById(R.id.addRoomBtn);
        priceEditText=findViewById(R.id.priceEditText);
         roomCategoryNoEditText=findViewById(R.id.roomCategoryNoEditText);
@@ -40,6 +42,20 @@ public class AddNewRoom extends AppCompatActivity {
                 startActivity(backToAdminDashboard);
             }
             });
+        navDashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backToDashboard = new Intent(getApplicationContext(), AdminDashboard.class);
+                startActivity(backToDashboard);
+            }
+        });
+        navUpdateUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ViewUsers = new Intent(getApplicationContext(), AdminViewUsers.class);
+                startActivity(ViewUsers);
+            }
+        });
 
         addnewRoomBtn.setOnClickListener(new View.OnClickListener() {
             @Override

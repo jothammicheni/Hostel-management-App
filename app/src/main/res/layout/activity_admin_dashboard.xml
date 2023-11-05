@@ -34,10 +34,10 @@
                 android:layout_height="wrap_content"
                 android:text="Dashboard"
                 android:id="@+id/navDashboard"
-                android:textSize="20dp"
+                android:textSize="15sp"
 
                 android:textFontWeight="30"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/green"
                 />
             <TextView
@@ -45,10 +45,21 @@
                 android:layout_height="wrap_content"
                 android:text="new Room"
                 android:id="@+id/navAddNewRooms"
-                android:textSize="20dp"
+                android:textSize="15sp"
 
                 android:textFontWeight="30"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/green"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Users"
+                android:id="@+id/navUpdateUsers"
+                android:textSize="15sp"
+
+                android:textFontWeight="30"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/green"
                 />
 

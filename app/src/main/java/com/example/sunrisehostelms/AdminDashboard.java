@@ -14,18 +14,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class AdminDashboard extends AppCompatActivity {
-   TextView  backHome, addNewRoom;
+   TextView  backHome, addNewRoom,navUpdateUsers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
-
+        navUpdateUsers= findViewById(R.id.navUpdateUsers);
         backHome = findViewById(R.id.backHome);
         LinearLayout LLdisplayItems = findViewById(R.id.LLdisplayRoms);
-        DBHelper dbHelper = new DBHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-
         backHome=findViewById(R.id.backHome);
         addNewRoom=findViewById(R.id.navAddNewRooms);
         addNewRoom.setOnClickListener(new View.OnClickListener() {
@@ -42,8 +39,19 @@ public class AdminDashboard extends AppCompatActivity {
                 startActivity(backToHome);
             }
         });
+        navUpdateUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ViewUsers = new Intent(getApplicationContext(), AdminViewUsers.class);
+                startActivity(ViewUsers);
+            }
+        });
 
 
+//Displaying the items
+
+        DBHelper dbHelper = new DBHelper(this);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] projection = {
                 RoomContract.RoomEntry.COLUMN_NAME_PRICE,
                 RoomContract.RoomEntry.COLUMN_NAME_CATEGORY,

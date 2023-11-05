@@ -22,8 +22,7 @@ public class DisplayRoomsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_rooms);
         TextView  backHome=findViewById(R.id.backHome);
         LinearLayout LLdisplayItems = findViewById(R.id.LLdisplayRoms);
-        DBHelper dbHelper = new DBHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
 
         //navigate back to home page
         backHome.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +34,9 @@ public class DisplayRoomsActivity extends AppCompatActivity {
         });
 
 
+        //display rooms
+        DBHelper dbHelper = new DBHelper(this);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
 
         String[] projection = {
                 RoomContract.RoomEntry.COLUMN_NAME_PRICE,
