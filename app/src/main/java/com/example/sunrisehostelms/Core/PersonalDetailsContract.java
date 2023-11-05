@@ -19,10 +19,9 @@ public class PersonalDetailsContract {
         // Define the SQL command to create the table
         public static final String CREATE_TABLE =
                 "CREATE TABLE " + TABLE_NAME + " (" +
-                        _ID + " INTEGER PRIMARY KEY," +
                         COLUMN_NAME_FULL_NAME + " TEXT," +
                         COLUMN_NAME_EMAIL + " TEXT," +
-                        COLUMN_NAME_REG_NO + " TEXT," +
+                        COLUMN_NAME_REG_NO + " TEXT PRIMARY KEY," +
                         COLUMN_NAME_ID_NO + " TEXT," +
                         COLUMN_NAME_PHONE_NO + " TEXT, "+
                         COLUMN_NAME_ROOM_PRICE + " INTEGER," +
