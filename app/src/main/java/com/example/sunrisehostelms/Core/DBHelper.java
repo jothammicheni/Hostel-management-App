@@ -10,7 +10,7 @@ import android.util.Log;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "RoomsDB";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // Define the table and column names in the contract class
 
@@ -32,6 +32,10 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Handle database upgrade if needed
+        if (oldVersion < 2) {
+            // Perform upgrade from version 1 to version 2
+            db.execSQL(PersonalDetailsContract.PersonalDetailsEntry.CREATE_TABLE);
+        }
     }
 
     public long insertData(String tableName, ContentValues values) {
@@ -41,11 +45,12 @@ public class DBHelper extends SQLiteOpenHelper {
             return db.insert(tableName, null, values);
         } catch (SQLException e) {
             e.printStackTrace();
-            Log.e("DBHelper", "Error inserting data: " + e.getMessage()); // Log the error message
+            Log.e("DBHelper", "Error inserting data: " + e.getMessage());
             return -1;
         } finally {
             db.close();
         }
     }
+
 
 }

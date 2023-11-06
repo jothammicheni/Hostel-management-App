@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.sunrisehostelms.Core.RoomContract;
 import com.example.sunrisehostelms.Core.DBHelper;
@@ -71,7 +72,7 @@ public class RegisterNewUser extends AppCompatActivity {
 
         // Check if the room already exists
         Cursor cursor = db.rawQuery("SELECT * FROM " + PersonalDetailsContract.PersonalDetailsEntry.TABLE_NAME +
-                " WHERE " + PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_NO+ "=?", new String[]{roomNo});
+                " WHERE " + PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_REG_NO+ "=?", new String[]{regNo});
 
         if (cursor.moveToFirst()) {
             // Room already exists in the database
@@ -93,8 +94,8 @@ public class RegisterNewUser extends AppCompatActivity {
             values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ID_NO, idNo);
             values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_PHONE_NO, phoneNo);
             // Assuming you have a method to get room price and room number
-            //values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_PRICE, roomPrice);
-            // values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_NO, roomNo);
+            values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_PRICE, roomPrice);
+             values.put(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_ROOM_NO, roomNo);
 
             long newRowId = dbHelper.insertData(PersonalDetailsContract.PersonalDetailsEntry.TABLE_NAME, values);
 
