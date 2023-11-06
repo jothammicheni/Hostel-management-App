@@ -77,7 +77,8 @@ public class RegisterNewUser extends AppCompatActivity {
             // Room already exists in the database
             Toast.makeText(RegisterNewUser.this, "User exists ", Toast.LENGTH_SHORT).show();
             cursor.close();
-        } else {
+        }
+        else {
             String fullName = fullNameEditText.getText().toString();
             String email = emailAdressEditText.getText().toString();
             String idNo = idNoEditText.getText().toString();
@@ -103,8 +104,9 @@ public class RegisterNewUser extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Failed To insert the data", Toast.LENGTH_SHORT).show();
             }
+            db.close();
         }
-        db.close();
+
     }
 
 
