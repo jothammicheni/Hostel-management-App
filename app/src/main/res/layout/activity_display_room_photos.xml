@@ -56,7 +56,6 @@
                 android:background="@drawable/loginicon"
                 android:id="@+id/navUserLogin"
                 android:textSize="20dp"
-
                 android:textFontWeight="30"
                 android:textColor="@color/green"
                 />
@@ -128,14 +127,7 @@
                 android:minHeight="300dp"
                 android:layout_marginTop="10dp"
                 />
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="500px"
-                android:src="@mipmap/room6"
-                android:scaleType="fitXY"
-                android:minHeight="300dp"
-                android:layout_marginTop="10dp"
-                />
+
         </LinearLayout>
 
     </ScrollView>

@@ -49,6 +49,7 @@
                     android:text="profile"
                     android:textSize="20dp"
                     android:layout_marginLeft="30dp"
+                    android:id="@+id/profile"
                     android:textColor="@color/green"
                     />
             <TextView

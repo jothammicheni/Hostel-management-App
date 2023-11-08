@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-TextView admin;
+TextView admin,UserProfile;
 Button displayRoomsBtn, ViewRoomsPhotosBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ Button displayRoomsBtn, ViewRoomsPhotosBtn;
         ViewRoomsPhotosBtn=findViewById(R.id.ViewRoomsPhotosBtn);
         displayRoomsBtn = findViewById(R.id.displayRoomsBtn);
         admin=findViewById(R.id.navAdmin);
+        UserProfile=findViewById(R.id.profile);
 
         admin.setOnClickListener(new View.OnClickListener() {
             @Override
