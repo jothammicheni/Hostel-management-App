@@ -21,7 +21,7 @@ TextView txtName,txtEmail,txtRegNo;
         setContentView(R.layout.activity_user_profile);
 
         Intent intent = getIntent();
-       String regNo = intent.getStringExtra("regNo");
+       String studentregNo = intent.getStringExtra("regNo");
         txtName = findViewById(R.id.name);
         txtEmail = findViewById(R.id.email);
         txtRegNo = findViewById(R.id.regno);
@@ -33,7 +33,7 @@ TextView txtName,txtEmail,txtRegNo;
         // Get the user details from the database
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + PersonalDetailsContract.PersonalDetailsEntry.TABLE_NAME +
-                " WHERE " + PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_REG_NO + " = ?", new String[]{getIntent().getStringExtra("regNo")});
+                " WHERE " + PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_REG_NO + " = ?", new String[]{getIntent().getStringExtra(studentregNo)});
 
         if (cursor.moveToFirst()) {
             String name = cursor.getString(cursor.getColumnIndex(PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_FULL_NAME));
