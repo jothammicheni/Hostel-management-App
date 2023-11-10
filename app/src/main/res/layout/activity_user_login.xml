@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".userLogin">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        >
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:padding="20px"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+                android:layout_margin="5sp"
+                android:id="@+id/entry1"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter Email"
+                    android:layout_marginEnd="50dp"
+                    android:id="@+id/unit1"
+                    android:textSize="15dp"
+                    android:layout_marginRight="10sp"
+                    android:textColor="@color/white"
+                    />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:hint="abc@gmail.com"
+                    android:width="300dp"
+                    android:height="30dp"
+                    android:textAlignment="center"
+                    android:inputType="text"
+                    android:id="@+id/emailEditText"
+                    android:background="@color/white"
+                    android:textColor="@color/black"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/entry1"
+                android:orientation="vertical"
+                android:layout_margin="5sp"
+                android:id="@+id/entry2"
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enter RegNo"
+                    android:layout_marginEnd="50dp"
+                    android:id="@+id/TVpassword"
+                    android:textSize="15dp"
+                    android:layout_marginRight="10sp"
+                    android:textColor="@color/white"
+                    />
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:textAlignment="center"
+                    android:width="250dp"
+                    android:height="30dp"
+                    android:hint="C025-01-0943/2021"
+                    android:inputType="textWebPassword"
+                    android:id="@+id/RegNo"
+                    android:background="@color/white"
+                    android:textColor="@color/black"
+                    />
+
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:id="@+id/login"
+                android:backgroundTint="#0000FF"
+                android:text="Login"
+                android:layout_marginTop="20dp"
+
+
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back?"
+                android:textSize="20px"
+                android:layout_marginLeft="30px"
+                android:layout_marginTop="10px"
+                android:id="@+id/backHome"
+                android:textColor="@color/pink"
+
+
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

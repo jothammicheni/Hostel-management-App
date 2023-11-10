@@ -20,6 +20,14 @@ Button displayRoomsBtn, ViewRoomsPhotosBtn;
         admin=findViewById(R.id.navAdmin);
         UserProfile=findViewById(R.id.profile);
 
+        UserProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),UserLoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
         admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

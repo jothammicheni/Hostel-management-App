@@ -22,7 +22,7 @@ public class DisplayRoomsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_rooms);
         TextView  backHome=findViewById(R.id.backHome);
         LinearLayout LLdisplayItems = findViewById(R.id.LLdisplayRoms);
-
+        TextView UserProfile=findViewById(R.id.profile);
 
         //navigate back to home page
         backHome.setOnClickListener(new View.OnClickListener() {
@@ -30,6 +30,16 @@ public class DisplayRoomsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent backToHmePage=new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(backToHmePage);
+            }
+        });
+
+        //navigate to userProfile
+
+        UserProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),UserLoginActivity.class);
+                startActivity(intent);
             }
         });
 

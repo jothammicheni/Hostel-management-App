@@ -6,4 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".UserProfile">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back?"
+            android:textSize="20px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="10px"
+            android:textAlignment="center"
+            android:id="@+id/name"
+            android:textColor="@color/pink"
+
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back?"
+            android:textSize="20px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="10px"
+            android:textAlignment="center"
+            android:id="@+id/email"
+            android:textColor="@color/pink"
+
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back?"
+            android:textSize="20px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="10px"
+            android:textAlignment="center"
+            android:id="@+id/regno"
+            android:textColor="@color/pink"
+
+
+            />
+
+
+
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
