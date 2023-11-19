@@ -89,7 +89,7 @@
                     android:width="250dp"
                     android:height="30dp"
                     android:hint="C025-01-0943/2021"
-                    android:inputType="textWebPassword"
+                    android:inputType="text"
                     android:id="@+id/RegNo"
                     android:background="@color/white"
                     android:textColor="@color/black"
