@@ -44,7 +44,7 @@ TextView txtName,txtEmail,txtRegNo,txtroomNo;
 
             txtName.setText(name);
             txtEmail.setText(email);
-            txtRegNo.setText(studentregNo);
+            txtRegNo.setText(studentregNo) ;
             txtroomNo.setText(roomNo);
         } else {
             Toast.makeText(this, "hhhshjh", Toast.LENGTH_SHORT).show();
