@@ -71,9 +71,34 @@ public class DisplayRoomsActivity extends AppCompatActivity {
             String floor = cursor.getString(cursor.getColumnIndex(RoomContract.RoomEntry.COLUMN_NAME_FLOOR));
             String roomNo = cursor.getString(cursor.getColumnIndex(RoomContract.RoomEntry.COLUMN_NAME_ROOM_NO));
 
+
+            //create all contents holder
+
+            LinearLayout contentLayout=new LinearLayout(this);
+            // Set bottom margin in pixels
+            int marginBottomInPixels = 9; // Adjust the value as needed
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            layoutParams.setMargins(10, 40, 10, marginBottomInPixels);
+
+            contentLayout.setLayoutParams(layoutParams);
+
+
             // Create a new LinearLayout for each room
             LinearLayout roomLayout = new LinearLayout(this);
             roomLayout.setOrientation(LinearLayout.VERTICAL);
+
+
+            //create  button layout
+            LinearLayout buttonLayout=new LinearLayout(this);
+            LinearLayout.LayoutParams buttonLayoutParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.FILL_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            buttonLayoutParams.setMargins(200, 40, 10, marginBottomInPixels);
+           buttonLayout.setLayoutParams(buttonLayoutParams);
 
             // Create TextViews for room details
             TextView floorTextView = new TextView(this);
@@ -97,10 +122,14 @@ public class DisplayRoomsActivity extends AppCompatActivity {
             roomLayout.addView(categoryTextView);
             roomLayout.addView(priceTextView);
             roomLayout.addView(roomNoTextView);
-            roomLayout.addView(bookButton);
+
+            buttonLayout.addView(bookButton);
 
             // Add the LinearLayout to the main LinearLayout
-            LLdisplayItems.addView(roomLayout);
+            contentLayout.addView(roomLayout);
+            contentLayout.addView(buttonLayout);
+
+            LLdisplayItems.addView(contentLayout);
 
 
             bookButton.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +137,7 @@ public class DisplayRoomsActivity extends AppCompatActivity {
                 public void onClick(View v) {
                      Intent userRegister=new Intent(getApplicationContext(),RegisterNewUser.class);
                     // Pass room details as extras
-                    userRegister.putExtra("roomPrice", price);
+                    userRegister.putExtra("price", price);
                     userRegister.putExtra("roomNo", roomNo);
 
                     startActivity(userRegister);
