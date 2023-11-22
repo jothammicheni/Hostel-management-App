@@ -121,8 +121,8 @@ public class AdminViewUsers extends AppCompatActivity {
 
 
             // Create a Button for booking
-            Button bookButton = new Button(this);
-            bookButton.setText("Book");
+            Button deleteButton = new Button(this);
+            deleteButton.setText("Book");
 
             // Add TextViews and Button to the LinearLayout
             roomLayout.addView(userNameTextView);
@@ -133,18 +133,44 @@ public class AdminViewUsers extends AppCompatActivity {
             roomLayout.addView(roomNoTextView);
 
 
-            roomLayout.addView(bookButton);
+            roomLayout.addView(deleteButton);
 
             // Add the LinearLayout to the main LinearLayout
             LLdisplayItems.addView(roomLayout);
 
 
-            bookButton.setOnClickListener(new View.OnClickListener() {
+            deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent userRegister=new Intent(getApplicationContext(),RegisterNewUser.class);
                     // Pass room details as extras
-                    Toast.makeText(AdminViewUsers.this, "Deleted", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(AdminViewUsers.this, "Deleted", Toast.LENGTH_SHORT).show();
+                    DBHelper dbHelper = new DBHelper(AdminViewUsers.this);
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+                    String userToDelete = regNo;
+
+                    String selection = PersonalDetailsContract.PersonalDetailsEntry.COLUMN_NAME_REG_NO + " = ?";
+                    String[] selectionArgs = {userToDelete};
+
+                    int deletedRows = db.delete(
+                            PersonalDetailsContract.PersonalDetailsEntry.TABLE_NAME,
+                            selection,
+                            selectionArgs
+                    );
+
+                    if (deletedRows > 0) {
+                        // Deletion was successful
+                        Toast.makeText(AdminViewUsers.this, "user Deleted ", Toast.LENGTH_SHORT).show();
+                        // You may want to update the UI or show a message here
+                    } else {
+                        Toast.makeText(AdminViewUsers.this, "Deletion failed", Toast.LENGTH_SHORT).show();
+                        // Deletion failed or no rows were affected
+                        // You may want to handle this case as needed
+                    }
+
+                    db.close();
+
                 }
             });
         }

@@ -101,9 +101,9 @@ public class RegisterNewUser extends AppCompatActivity {
 
             if (newRowId != 0) {
                 deleteRoomFromDatabase(roomNo);
-                Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Booking successful", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Failed To insert the data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Booking failed", Toast.LENGTH_SHORT).show();
             }
             db.close();
         }
@@ -123,9 +123,9 @@ public class RegisterNewUser extends AppCompatActivity {
             int deletedRows = db.delete(RoomContract.RoomEntry.TABLE_NAME, selection, selectionArgs);
 
             if (deletedRows > 0) {
-                Toast.makeText(this, "Room deleted successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Failed to delete room", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
             }
 
 
